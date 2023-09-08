@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    Layout = null;
+    Context.Session.Remove("name");
+    Context.Session.Remove("info");
+    Context.Session.Remove("balance");
+    Context.Session.Remove("email");
+    Context.Session.Remove("password");
+    if (string.IsNullOrEmpty(Context.Session.GetString("phone")))
+    {
+
+    }
+    else
+    {
+        Context.Session.Remove("phone");
+    }
+
+}
+
+
+
+<script>
+    window.location.href = "/";
+</script>
